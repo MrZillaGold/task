@@ -1,0 +1,19 @@
+diff --git a/node_modules/@hono/node-server/dist/index.js b/node_modules/@hono/node-server/dist/index.js
+index 17ae9ca..4286a74 100644
+--- a/node_modules/@hono/node-server/dist/index.js
++++ b/node_modules/@hono/node-server/dist/index.js
+@@ -94,7 +94,13 @@ var newRequestFromIncoming = (method, url, incoming, abortController) => {
+     return req;
+   }
+   if (!(method === "GET" || method === "HEAD")) {
+-    init.body = import_node_stream.Readable.toWeb(incoming);
++    init.body = new ReadableStream({
++      start(controller){
++        controller.enqueue(incoming.rawBody);
++        controller.close();
++      }
++    });
++    init.duplex = "half";
+   }
+   return new Request(url, init);
+ };

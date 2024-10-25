@@ -1,0 +1,11 @@
+node_modules
+creds.json
+*.pem
+certs/
+dist/
+.DS_Store
+.env
+lib
+.idea
+.yarn
+*.log

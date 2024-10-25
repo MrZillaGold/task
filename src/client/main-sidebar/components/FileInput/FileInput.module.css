@@ -1,0 +1,46 @@
+.root.root,
+.root.root:hover,
+.root.root:active,
+.root.root[aria-disabled] {
+  block-size: 12em;
+  border-radius: 1em;
+  text-align: center;
+  text-transform: unset;
+  border-width: 0.125em;
+}
+
+.rootOutline::before {
+  content: '';
+  position: absolute;
+  top: 1em;
+  left: 1em;
+  padding: 1em;
+  width: calc(100% - 4em);
+  height: calc(100% - 4em);
+  border: inherit;
+  border-style: dashed;
+  border-radius: inherit;
+}
+
+.text.text {
+  max-height: 100%;
+  font-weight: 400;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  overflow: hidden;
+}
+
+.icon.icon {
+  line-height: 1;
+}
+
+.input {
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  opacity: 0;
+  z-index: -1;
+  position: absolute;
+}

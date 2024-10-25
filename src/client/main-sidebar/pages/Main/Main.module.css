@@ -1,0 +1,12 @@
+.header.header  {
+  text-align: center;
+  margin-block-start: 0.5em;
+  margin-block-end: 0.5em;
+}
+
+.generateButton.generateButton {
+  font-weight: 400;
+  border-radius: 2em;
+  margin-block-start: 1em;
+  text-transform: unset;
+}

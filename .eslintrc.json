@@ -1,0 +1,42 @@
+{
+  "root": true,
+  "parser": "@typescript-eslint/parser",
+  "extends": [
+    "airbnb-base",
+    "plugin:prettier/recommended",
+    "eslint:recommended",
+    "plugin:@typescript-eslint/recommended"
+  ],
+  "plugins": ["prettier", "googleappsscript"],
+  "env": {
+    "googleappsscript/googleappsscript": true
+  },
+  "rules": {
+    "no-shadow": "off",
+    "no-underscore-dangle": "off",
+    "no-await-in-loop": "off",
+    "import/no-mutable-exports": "off",
+    "import/no-unresolved": "off",
+    "prettier/prettier": "error",
+    "camelcase": "warn",
+    "import/prefer-default-export": "off",
+    "import/no-extraneous-dependencies": "warn",
+    "prefer-object-spread": "warn",
+    "import/extensions": [
+      "error",
+      "ignorePackages",
+      {
+        "js": "never",
+        "ts": "never"
+      }
+    ]
+  },
+  "ignorePatterns": ["dist", ".eslintrc.json"],
+  "settings": {
+    "import/resolver": {
+      "node": {
+        "extensions": [".js", ".ts"]
+      }
+    }
+  }
+}

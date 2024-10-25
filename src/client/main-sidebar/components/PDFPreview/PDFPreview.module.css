@@ -1,0 +1,23 @@
+.root.root,
+.root canvas {
+  width: 100%;
+  height: 60px;
+  overflow: hidden;
+  object-fit: cover;
+  object-position: center top;
+}
+
+.root :global(.react-pdf__Page) {
+  display: flex;
+  justify-content: center;
+}
+
+.root :global(.react-pdf__Page) *:not(canvas) {
+  display: none;
+}
+
+.root :global(.pdf-page) {
+  margin-top: unset;
+  box-shadow: unset;
+  background: unset;
+}
