@@ -35,15 +35,15 @@ const app = new Hono().post(
     await openAI.beta.threads.messages.create(thread.id, {
       role: 'user',
       content: `
-      Parse the text below and return a json array with information for the slides,
-      regarding which I will generate Google Slides using gs language, use JSON schema,
-      the position of the elements of each individual slide is counted from the upper left corner (top: 0, left: 0):
+Parse the text below and return a json array with information for the slides,
+regarding which I will generate Google Slides using gs language, use JSON schema,
+the position of the elements of each individual slide is counted from the upper left corner (top: 0, left: 0):
 
-      ${JSON.stringify(pdfToSlidesResponseJSONSchema, null, 2)}
+${JSON.stringify(pdfToSlidesResponseJSONSchema, null, 2)}
 
-      Here is the text itself:
+Here is the text itself:
 
-      ${text}
+${text}
       `,
     });
 
