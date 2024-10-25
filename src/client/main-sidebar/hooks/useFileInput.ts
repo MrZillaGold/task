@@ -1,4 +1,4 @@
-import { RefObject, useEffect, useId, useRef, useState } from 'react';
+import { RefObject, useEffect, useId, useRef } from 'react';
 
 export interface UseFileInputOptions
   extends Omit<
@@ -22,8 +22,6 @@ export interface UseFileInputOptions
 export interface UseFileInput {
   fileInputId: string;
   fileInputRef: RefObject<HTMLInputElement>;
-  isFilesDragging: boolean;
-  isFilesDraggingEntered: boolean;
 }
 
 export const useFileInput = ({
@@ -36,8 +34,6 @@ export const useFileInput = ({
   const fileInputId = useId();
 
   const fileInputRef = useRef<HTMLInputElement>(null);
-  const [isFilesDragging, setIsFilesDragging] = useState(false);
-  const [isFilesDraggingEntered, setIsFilesDraggingEntered] = useState(false);
 
   const clearInput = (): void => {
     const input = fileInputRef.current;
@@ -63,9 +59,6 @@ export const useFileInput = ({
 
   const changeHandler = (event: Event): void => {
     event.preventDefault();
-
-    setIsFilesDragging(false);
-    setIsFilesDraggingEntered(false);
 
     const currentTarget = event.currentTarget as HTMLInputElement;
     const files =
@@ -117,7 +110,5 @@ export const useFileInput = ({
   return {
     fileInputId,
     fileInputRef,
-    isFilesDragging,
-    isFilesDraggingEntered,
   };
 };
